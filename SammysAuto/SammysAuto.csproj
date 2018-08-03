@@ -5,6 +5,16 @@
     <UserSecretsId>aspnet-SammysAuto-4B56526B-B679-411A-890C-B2F82646E92E</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180803200939_UpdateServices.cs" />
+    <Compile Remove="Data\Migrations\20180803201117_UpdateServices2.cs" />
+    <Compile Remove="Data\Migrations\20180803201159_UpdateServices3.cs" />
+    <Compile Remove="Data\Migrations\20180803201223_UpdateServices4.cs" />
+    <Compile Remove="Data\Migrations\20180803201400_UpdateServices5.cs" />
+    <Compile Remove="Data\Migrations\20180803201625_IHopeThisWOrks.cs" />
+    <Compile Remove="Data\Migrations\20180803201932_IHopeThisWOrks2.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
@@ -16,6 +26,25 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Cars\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Cars\Delete.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ServiceTypes\Delete.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ServiceTypes\Edit.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

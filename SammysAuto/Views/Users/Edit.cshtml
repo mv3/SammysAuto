@@ -1,15 +1,16 @@
-﻿@model RegisterViewModel
-@using SammysAuto.Utility
-
+﻿@model ApplicationUser
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>@ViewData["Title"]</h2>
+<br />
+<h2>Edit Customer</h2>
+<hr />
 
-<div class="row">
-    <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Edit">
+    <div class="form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-2">
@@ -87,62 +88,10 @@
             </div>
             <span asp-validation-for="PostalCode" class="text-danger"></span>
         </div>
+        <br />
         <div class="form-group">
-            <div class="row">
-                <div class="col-sm-2">
-                    <label asp-for="Password" class="custom-label"></label>
-                </div>
-                <div class="col-sm-4">
-                    <input asp-for="Password" class="form-control" />
-                </div>
-            </div>
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <input type="submit" value="Update" class="btn btn-sm btn-primary" />
+            <a asp-action="Index" class="btn btn-sm btn-success">Back to List</a>
         </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-2">
-                    <label asp-for="ConfirmPassword" class="custom-label"></label>
-                </div>
-                <div class="col-sm-4">
-                    <input asp-for="ConfirmPassword" class="form-control" />
-                </div>
-            </div>
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-        @if (User.IsInRole(SD.AdminEndUser))
-        {
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label asp-for="isAdmin" class="custom-label"></label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input asp-for="isAdmin" type="checkbox" />
-                    </div>
-                </div>
-                <span asp-validation-for="isAdmin" class="text-danger"></span>
-            </div>
-        }
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-4">
-                    @if (User.IsInRole(SD.AdminEndUser))
-                    {
-                        <button type="submit" class="btn btn-primary form-control">Add Customer</button>
-                    }
-                    else
-                    {
-                        <button type="submit" class="btn btn-primary form-control">Register</button>
-                    }
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
+    </div>
+</form>
